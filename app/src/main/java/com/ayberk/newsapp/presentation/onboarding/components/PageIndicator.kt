@@ -16,25 +16,20 @@ import com.ayberk.newsapp.presentation.onboarding.Dimens.IndicatorSize
 
 @Composable
 fun PageIndicator(
-modifier: Modifier= Modifier,
-pageSize:Int,
-selectedPage:Int,
-selectedColor:Color = MaterialTheme.colorScheme.primary,
-unselectedColor:Color = Color.Blue
+    modifier: Modifier = Modifier,
+    pageSize: Int,
+    selectedPage: Int,
+    selectedColor: Color = Color.Blue,
+    unselectedColor: Color = Color.Gray
+) {
+    Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
+        repeat(pageSize) { page ->
+            val boxModifier = Modifier
+                .size(IndicatorSize)
+                .clip(CircleShape)
+                .background(color = if (page == selectedPage) selectedColor else unselectedColor)
 
-){
-Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
-    repeat(pageSize){ page ->
-        Box (modifier = modifier
-            .size(IndicatorSize)
-            .clip(CircleShape)
-            .background(color = if (page == selectedPage) selectedColor else unselectedColor)
-        )
-        Log.e("a","aasg")
-        Log.e("a","aasg")
-
-        Log.e("a","aasg")
-        Log.e("a","aasg")
+            Box(modifier = boxModifier)
+        }
     }
-  }
 }

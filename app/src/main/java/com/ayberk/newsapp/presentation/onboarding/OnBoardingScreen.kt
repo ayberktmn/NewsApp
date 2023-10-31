@@ -27,12 +27,12 @@ import com.ayberk.newsapp.presentation.onboarding.components.PageIndicator
 import kotlinx.coroutines.launch
 
 
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnBoardingScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
-        val pagerState = rememberPagerState(initialPage = 0)
-        pages.size
+        val pagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
 
         val buttonState = remember {
             derivedStateOf {
@@ -45,7 +45,7 @@ fun OnBoardingScreen() {
             }
         }
 
-        HorizontalPager(state = pagerState, pageCount = pages.size) { index ->
+        HorizontalPager(state = pagerState) { index ->
             val currentPage = pages.getOrNull(index)
             currentPage?.let { page ->
                 OnBoardingPage(page = page)

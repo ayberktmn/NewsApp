@@ -30,7 +30,7 @@ Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
             .clip(CircleShape)
             .background(color = if (page == selectedPage) selectedColor else unselectedColor)
         )
-      Log.e("a","asgadadgadhad")
+
     }
   }
 }

@@ -54,7 +54,6 @@ fun OnBoardingPage(
             modifier = modifier.padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
             color = colorResource(id = R.color.text_medium)
-
         )
     }
 }

@@ -32,6 +32,9 @@ Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
         )
         Log.e("a","aasg")
         Log.e("a","aasg")
+
+        Log.e("a","aasg")
+        Log.e("a","aasg")
     }
   }
 }

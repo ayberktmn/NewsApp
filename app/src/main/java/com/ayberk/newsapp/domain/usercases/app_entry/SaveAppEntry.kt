@@ -1,4 +1,4 @@
-package com.ayberk.newsapp.domain.usercases
+package com.ayberk.newsapp.domain.usercases.app_entry
 
 import com.ayberk.newsapp.domain.manger.LocalUserManger
 

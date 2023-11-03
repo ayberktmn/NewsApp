@@ -16,7 +16,6 @@ fun NewsButton(
     text:String,
     onClick:() -> Unit
 ){
-
     Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
         containerColor = Color.Blue,
         contentColor = Color.White

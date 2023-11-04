@@ -15,6 +15,8 @@ import com.ayberk.newsapp.presentation.home.HomeScreen
 import com.ayberk.newsapp.presentation.home.HomeViewModel
 import com.ayberk.newsapp.presentation.onboarding.OnBoardingScreen
 import com.ayberk.newsapp.presentation.onboarding.OnBoardingViewModel
+import com.ayberk.newsapp.presentation.search.SearchScreen
+import com.ayberk.newsapp.presentation.search.SearchViewModel
 
 @SuppressLint("SuspiciousIndentation")
 @Composable
@@ -44,9 +46,8 @@ fun NavGraph(
             composable(
                 route = Route.NewsNavigationScreen.route
             ){
-                val viewModel: HomeViewModel = hiltViewModel()
-                val articles = viewModel.news.collectAsLazyPagingItems()
-                HomeScreen(articles= articles,navigate={})
+                val viewModel: SearchViewModel = hiltViewModel()
+                SearchScreen(state = viewModel.state.value, event = viewModel::onEvent, navigate = {})
             }
         }
     }

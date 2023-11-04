@@ -92,8 +92,6 @@ fun ArticleCard(
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                     color = colorResource(id = R.color.body)
                 )
-                
-
             }
         }
     }

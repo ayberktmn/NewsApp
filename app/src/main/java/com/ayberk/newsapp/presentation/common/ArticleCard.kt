@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -31,6 +32,7 @@ import com.ayberk.newsapp.domain.model.Source
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ArticleCardSize
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ExtraSmallPadding
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ExtraSmallPadding2
+import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding1
 import com.ayberk.newsapp.presentation.onboarding.Dimens.SmallIconSize
 
 @Composable
@@ -48,7 +50,8 @@ fun ArticleCard(
                 .size(ArticleCardSize)
                 .clip(MaterialTheme.shapes.medium),
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop
 
         )
 
@@ -57,9 +60,10 @@ fun ArticleCard(
                 .padding(horizontal = ExtraSmallPadding)
                 .height(ArticleCardSize)) 
         {
-            
+
           Text(
               text = article.title,
+              Modifier.padding(start = MediumPadding1),
               style = MaterialTheme.typography.bodyMedium,
               color = colorResource(
               id = R.color.text_title),
@@ -69,6 +73,7 @@ fun ArticleCard(
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
+                    modifier=Modifier.padding(start = MediumPadding1),
                     text = article.source.name,
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                     color = colorResource(id = R.color.body)

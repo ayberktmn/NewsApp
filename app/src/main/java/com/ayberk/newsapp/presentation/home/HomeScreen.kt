@@ -62,7 +62,9 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
         
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        SearchBar(text = "",
+        SearchBar(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
+            text = "",
             readOnly = true,
             onValueChange = {},
             onClick = {

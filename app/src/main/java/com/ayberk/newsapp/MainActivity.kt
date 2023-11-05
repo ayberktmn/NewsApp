@@ -14,19 +14,46 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Insert
+import com.ayberk.newsapp.data.local.NewsDao
+import com.ayberk.newsapp.domain.model.Article
+import com.ayberk.newsapp.domain.model.Source
 import com.ayberk.newsapp.navgraph.NavGraph
 import com.ayberk.newsapp.ui.theme.NewsAppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val viewModel by viewModels<MainViewModel>()
+    @Inject
+    lateinit var dao : NewsDao
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window,false)
+
+        lifecycleScope.launch {
+            dao.upsert(
+                Article(
+                    author = "",
+                    title = "addhahaddadada",
+                    description = "dasghadhadhadhahd",
+                    content = "adgadhadhaaaaaaaaaaaaaa",
+                    publishedAt = "2023-06-16T22:24:33Z",
+                    source = Source(
+                        id = "", name = "bbc"
+                    ),
+                    url = "",
+                    urlToImage = ""
+                )
+            )
+        }
+
         installSplashScreen().apply {
             setKeepOnScreenCondition {
                 viewModel.splashCondition

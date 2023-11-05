@@ -20,6 +20,29 @@ import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding1
 @Composable
 fun ArticleList(
     modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+        contentPadding = PaddingValues(all = ExtraSmallPadding2)
+    ) {
+        items(count = articles.size) {
+            val article = articles[it]
+                ArticleCard(article = article, onClick = { onClick(article) })
+
+            }
+        }
+    }
+
+
+
+@SuppressLint("SuspiciousIndentation")
+@Composable
+fun ArticleList(
+    modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
     onClick: (Article) -> Unit
 
@@ -27,7 +50,7 @@ fun ArticleList(
     val handlePagingResult = handlePagingResult(articles = articles)
         if (handlePagingResult){
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(MediumPadding1),
                 contentPadding = PaddingValues(all = ExtraSmallPadding2)
             ){

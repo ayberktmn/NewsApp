@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ayberk.newsapp.R
@@ -27,6 +28,7 @@ import com.ayberk.newsapp.domain.model.Article
 import com.ayberk.newsapp.domain.model.Source
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ArticleImageHeight
 import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding1
+import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding2
 import com.ayberk.newsapp.ui.theme.NewsAppTheme
 
 @Composable
@@ -62,8 +64,9 @@ fun DetailsScreen(
                         }
                     }
             },
+
             onBookmarkClick = { event(DetailsEvent.UpsertDeleteArticle(article)) },
-            onBackClick = navigateUp
+            onBackClick = {navigateUp}
         )
 
         LazyColumn(
@@ -94,7 +97,7 @@ fun DetailsScreen(
                         id = R.color.text_title
                     )
                 )
-
+                Spacer(modifier = Modifier.height(MediumPadding2))
                 Text(
                     text = article.content,
                     style = MaterialTheme.typography.bodyMedium,

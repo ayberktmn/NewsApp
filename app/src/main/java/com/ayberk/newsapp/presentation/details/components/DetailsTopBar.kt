@@ -1,6 +1,7 @@
 package com.ayberk.newsapp.presentation.details.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +17,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,6 +48,7 @@ fun DetailsTopBar(
                     painter = painterResource(id = R.drawable.ic_back_arrow),
                     contentDescription = null
                 )
+
             }
         },
         actions = {
@@ -54,6 +57,7 @@ fun DetailsTopBar(
                     painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = null
                 )
+
             }
             IconButton(onClick = { onShareClick }) {
                 Icon(
@@ -64,7 +68,7 @@ fun DetailsTopBar(
             IconButton(onClick = { onBrowsingClick }) {
                 Icon(
                   painter = painterResource(id = R.drawable.ic_network),
-                    contentDescription = null
+                    contentDescription = null,
                 )
             }
         }

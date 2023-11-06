@@ -17,6 +17,7 @@ import com.ayberk.newsapp.domain.usercases.news.DeleteArticle
 import com.ayberk.newsapp.domain.usercases.news.GetNews
 import com.ayberk.newsapp.domain.usercases.news.NewsUseCases
 import com.ayberk.newsapp.domain.usercases.news.SearchNews
+import com.ayberk.newsapp.domain.usercases.news.SelectArticle
 import com.ayberk.newsapp.domain.usercases.news.SelectArticles
 import com.ayberk.newsapp.domain.usercases.news.UpsertArticle
 import com.ayberk.newsapp.util.Constants.BASE_URL
@@ -76,7 +77,8 @@ object AppModule {
             searchNews = SearchNews(newsRepository),
             upsertArticle = UpsertArticle(newsDao),
             deleteArticle = DeleteArticle(newsDao),
-            selectArticles = SelectArticles(newsDao)
+            selectArticles = SelectArticles(newsDao),
+            selectArticle = SelectArticle(newsDao)
 
         )
     }

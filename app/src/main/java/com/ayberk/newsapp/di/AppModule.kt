@@ -71,7 +71,7 @@ object AppModule {
     @Singleton
     fun provideNewsUseCases(
         newsRepository: NewsRepository,
-
+        newsDao: NewsDao
     ): NewsUseCases{
         return NewsUseCases(
             getNews = GetNews(newsRepository),

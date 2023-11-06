@@ -27,12 +27,11 @@ import com.ayberk.newsapp.ui.theme.NewsAppTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsTopBar(
-    onBrowsingClick:() -> Unit,
-    onShareClick:() -> Unit,
-    onBookmarkClick:() -> Unit,
-    onBackClick:() -> Unit
+    onBrowsingClick: () -> Unit,
+    onShareClick: () -> Unit,
+    onBookmarkClick: () -> Unit,
+    onBackClick: () -> Unit
 ) {
-
     TopAppBar(
         title = { },
         modifier = Modifier.fillMaxWidth(),
@@ -41,39 +40,37 @@ fun DetailsTopBar(
             actionIconContentColor = colorResource(id = R.color.body),
             navigationIconContentColor = colorResource(id = R.color.body),
         ),
-        
         navigationIcon = {
-            IconButton(onClick = { onBackClick }) {
+            IconButton(onClick = onBackClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_back_arrow),
                     contentDescription = null
                 )
-
             }
         },
         actions = {
-            IconButton(onClick = { onBookmarkClick }) {
+            IconButton(onClick = onBookmarkClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = null
                 )
-
             }
-            IconButton(onClick = { onShareClick }) {
+            IconButton(onClick = onShareClick) {
                 Icon(
                     imageVector = Icons.Default.Share,
                     contentDescription = null
                 )
             }
-            IconButton(onClick = { onBrowsingClick }) {
+            IconButton(onClick = onBrowsingClick) {
                 Icon(
-                  painter = painterResource(id = R.drawable.ic_network),
+                    painter = painterResource(id = R.drawable.ic_network),
                     contentDescription = null,
                 )
             }
         }
     )
 }
+
 
 @Preview(showBackground = true)
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)

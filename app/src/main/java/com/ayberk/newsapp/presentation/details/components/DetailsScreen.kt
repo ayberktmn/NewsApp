@@ -3,6 +3,7 @@ package com.ayberk.newsapp.presentation.details.components
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -26,6 +27,7 @@ import coil.request.ImageRequest
 import com.ayberk.newsapp.R
 import com.ayberk.newsapp.domain.model.Article
 import com.ayberk.newsapp.domain.model.Source
+import com.ayberk.newsapp.navgraph.Route
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ArticleImageHeight
 import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding1
 import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding2
@@ -55,6 +57,7 @@ fun DetailsScreen(
                     }
                 }
             },
+
             onShareClick = {
                     Intent(Intent.ACTION_SEND).also {
                         it.putExtra(Intent.EXTRA_TEXT,article.url)
@@ -66,7 +69,7 @@ fun DetailsScreen(
             },
 
             onBookmarkClick = { event(DetailsEvent.UpsertDeleteArticle(article)) },
-            onBackClick = {navigateUp}
+            onBackClick =  navigateUp
         )
 
         LazyColumn(
@@ -118,15 +121,15 @@ fun DetailsScreenPreview(){
         DetailsScreen(
             article = Article(
                 author = "",
-                title = "addhahaddadada",
-                description = "dasghadhadhadhahd",
-                content = "adgadhadhaaaaaaaaaaaaaa",
+                title = "This \$230 Refurbished iPad Comes With Beats Headphones",
+                description = "This grade “A” refurbished 7th-generation Apple iPad comes with open-box Beats Flex wireless headphones and a complete set of accessories for \$229.99 (reg. \$299.99). Read more...",
+                content = "This grade A refurbished 7th-generation Apple iPad comes with open-box Beats Flex wireless headphones and a complete set of accessories for \$229.99 (reg. \$299.99). \\r\\nGrade-A devices are in near-mint … [+1014 chars]",
                 publishedAt = "2023-06-16T22:24:33Z",
                 source = Source(
                     id = "", name = "bbc"
                 ),
-                url = "",
-                urlToImage = ""
+                url = "https://lifehacker.com/this-230-refurbished-ipad-comes-with-beats-headphones-1850986626",
+                urlToImage = "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/c3e5883b36718931d99b5545bb28c0a1.png"
             ), event = {}
         ) {
 

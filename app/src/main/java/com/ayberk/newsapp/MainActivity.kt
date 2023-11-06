@@ -29,30 +29,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val viewModel by viewModels<MainViewModel>()
-    @Inject
-    lateinit var dao : NewsDao
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window,false)
 
-        lifecycleScope.launch {
-            dao.upsert(
-                Article(
-                    author = "",
-                    title = "addhahaddadada",
-                    description = "dasghadhadhadhahd",
-                    content = "adgadhadhaaaaaaaaaaaaaa",
-                    publishedAt = "2023-06-16T22:24:33Z",
-                    source = Source(
-                        id = "", name = "bbc"
-                    ),
-                    url = "",
-                    urlToImage = ""
-                )
-            )
-        }
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {

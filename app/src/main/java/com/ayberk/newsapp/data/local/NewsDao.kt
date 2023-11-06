@@ -20,4 +20,7 @@ abstract class NewsDao {
     @Query("SELECT * FROM Article")
     abstract fun getArticles(): Flow<List<Article>>
 
+    @Query("SELECT * FROM Article WHERE url=:url")
+    abstract suspend fun getArticle(url : String): Article?
+
 }

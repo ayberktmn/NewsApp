@@ -3,12 +3,9 @@ package com.ayberk.newsapp.presentation.details.components
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.captionBarPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -28,7 +25,6 @@ import coil.request.ImageRequest
 import com.ayberk.newsapp.R
 import com.ayberk.newsapp.domain.model.Article
 import com.ayberk.newsapp.domain.model.Source
-import com.ayberk.newsapp.navgraph.Route
 import com.ayberk.newsapp.presentation.onboarding.Dimens.ArticleImageHeight
 import com.ayberk.newsapp.presentation.onboarding.Dimens.MediumPadding1
 import com.ayberk.newsapp.ui.theme.NewsAppTheme
@@ -66,7 +62,7 @@ fun DetailsScreen(
                         }
                     }
             },
-            onBookmarkClick = { event(DetailsEvent.SaveArticle) },
+            onBookmarkClick = { event(DetailsEvent.UpsertDeleteArticle(article)) },
             onBackClick = navigateUp
         )
 
